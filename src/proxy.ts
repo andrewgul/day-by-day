@@ -6,17 +6,28 @@ const intlMiddleware = createMiddleware(routing);
 
 const isProtectedRoute = createRouteMatcher(['profile/(.*)'])
 
+const isApiRoute = createRouteMatcher(['/api(.*)']);
+
 export default clerkMiddleware(async (auth, req) => {
   if (isProtectedRoute(req)) await auth.protect()
+
+    // 2. API-роуты и статику — пропускаем мимо next-intl полностью
+  if (isApiRoute(req)) {
+    return; // ← ничего не возвращаем → intl не применяется
+  }
 
   return intlMiddleware(req)
 });
 
 export const config = {
   matcher: [
-    // Skip Next.js internals and all static files, unless found in search params
-    '/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
-    // Always run for API routes
-    '/(api|trpc)(.*)',
+    // Применяем middleware ко всему, кроме:
+    // • Next.js internals
+    // • static files (images, favicon, etc.)
+    // • API routes (важно!)
+    '/((?!_next|api|.*\\..*).*)',
+    // Явно включаем корень и [locale] маршруты
+    '/',
+    '/(en|ru)/:path*',
   ],
 };
