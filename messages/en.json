@@ -1,5 +1,26 @@
 {
   "test": {
     "test": "This is a test message"
+  },
+  "Sidebar": {
+    "calendar": "Calendar",
+    "profile": "Profile",
+    "settings": "Settings",
+    "activities": "Activities"
+  },
+  "Activities": {
+    "title": "Activities"
+  },
+  "Profile": {
+    "title": "Profile"
+  },
+  "Settings": {
+    "title": "Settings"
+  },
+  "Calendar": {
+    "title": "Calendar"
+  },
+  "LocaleSwitcher": {
+    "language": "Language"
   }
 }

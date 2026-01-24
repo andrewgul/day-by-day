@@ -1,5 +1,26 @@
 {
   "test": {
     "test": "Это тестовое сообщение"
+  },
+  "Sidebar": {
+    "calendar": "Календарь",
+    "profile": "Профиль",
+    "settings": "Настройки",
+    "activities": "Активности"
+  },
+  "Activities": {
+    "title": "Активности"
+  },
+  "Profile": {
+    "title": "Профиль"
+  },
+  "Settings": {
+    "title": "Настройки"
+  },
+  "Calendar": {
+    "title": "Календарь"
+  },
+  "LocaleSwitcher": {
+    "language": "Язык"
   }
 }
