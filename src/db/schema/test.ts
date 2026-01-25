@@ -5,7 +5,3 @@ export const test = pgTable('test', {
   someNumber: integer('some_number').notNull().default(1337),
   createdAt: timestamp('created_at').defaultNow(),
 });
-
-export const schema = {
-  test,
-};
