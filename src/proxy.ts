@@ -1,32 +1,33 @@
 import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
 import createMiddleware from 'next-intl/middleware'
 import { routing } from './i18n/routing';
+import { NextResponse } from 'next/server';
+import { extractLocaleFromPathname } from './i18n/utils';
+import { ROUTES } from './config/routes';
 
 const intlMiddleware = createMiddleware(routing);
 
-const isProtectedRoute = createRouteMatcher(['profile/(.*)'])
-
-const isApiRoute = createRouteMatcher(['/api(.*)']);
+const isPublicRoute = createRouteMatcher([
+  `/(${routing.locales.join('|')})/welcome`,
+  '/welcome',
+  '/',
+]);
 
 export default clerkMiddleware(async (auth, req) => {
-  if (isProtectedRoute(req)) await auth.protect()
+  const { userId } = await auth();
 
-    // 2. API-роуты и статику — пропускаем мимо next-intl полностью
-  if (isApiRoute(req)) {
-    return; // ← ничего не возвращаем → intl не применяется
+  if (!isPublicRoute(req) && !userId) {
+    const locale = extractLocaleFromPathname(req.nextUrl.pathname);
+
+    return NextResponse.redirect(new URL(`/${locale}${ROUTES.welcome.getPath()}`, req.url));
   }
 
-  return intlMiddleware(req)
+  return intlMiddleware(req);
 });
 
 export const config = {
   matcher: [
-    // Применяем middleware ко всему, кроме:
-    // • Next.js internals
-    // • static files (images, favicon, etc.)
-    // • API routes (важно!)
     '/((?!_next|api|.*\\..*).*)',
-    // Явно включаем корень и [locale] маршруты
     '/',
     '/(en|ru)/:path*',
   ],

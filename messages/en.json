@@ -2,11 +2,18 @@
   "test": {
     "test": "This is a test message"
   },
-  "Sidebar": {
+  "SidebarComponent": {
+    "dashboard": "Dashboard",
     "calendar": "Calendar",
     "profile": "Profile",
     "settings": "Settings",
     "activities": "Activities"
+  },
+  "WelcomePage": {
+    "description": "I just wanted a nice, straightforward way to track my daily activities",
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "continue": "Continue"
   },
   "Activities": {
     "title": "Activities"
@@ -22,5 +29,9 @@
   },
   "LocaleSwitcher": {
     "language": "Language"
+  },
+  "Images": {
+    "logo": "Logo"
   }
 }
+

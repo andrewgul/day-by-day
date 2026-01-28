@@ -2,11 +2,18 @@
   "test": {
     "test": "Это тестовое сообщение"
   },
-  "Sidebar": {
+  "SidebarComponent": {
+    "dashboard": "Дашборд",
     "calendar": "Календарь",
     "profile": "Профиль",
     "settings": "Настройки",
     "activities": "Активности"
+  },
+  "WelcomePage": {
+    "description": "Мне просто захотелось создать удобный трекер активностей",
+    "signIn": "Войти",
+    "signUp": "Регистрация",
+    "continue": "Продолжить"
   },
   "Activities": {
     "title": "Активности"
@@ -22,5 +29,8 @@
   },
   "LocaleSwitcher": {
     "language": "Язык"
+  },
+  "Images": {
+    "logo": "Логотип"
   }
 }

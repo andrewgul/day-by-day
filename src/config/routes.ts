@@ -1,4 +1,10 @@
 export const ROUTES = {
+  welcome: {
+    getPath: () => '/welcome',
+  },
+  dashboard: {
+    getPath: () => '/dashboard',
+  },
   calendar: {
     getPath: () => '/calendar',
   },
