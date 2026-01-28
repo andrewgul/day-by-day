@@ -9,14 +9,19 @@ import {
 import { ROUTES } from "@/config/routes";
 import { Link } from "@/i18n/navigation";
 import { LinkEntity } from "@/types/LinkEntity";
-import { CalendarHeart, User, Settings, Bike } from 'lucide-react';
+import { CalendarHeart, User, Settings, Bike, CircleGauge } from 'lucide-react';
 import { getTranslations } from "next-intl/server";
 
 const getLinks = async (): Promise<Record<'primary' | 'secondary', LinkEntity<{ icon: React.ComponentType<{ className?: string }> }>[]>> => {
-  const t = await getTranslations('Sidebar');
+  const t = await getTranslations('SidebarComponent');
 
   return {
     primary: [
+      {
+        title: t('dashboard'),
+        href: ROUTES.dashboard.getPath(),
+        icon: CircleGauge,
+      },
       {
         title: t('calendar'),
         href: ROUTES.calendar.getPath(),
