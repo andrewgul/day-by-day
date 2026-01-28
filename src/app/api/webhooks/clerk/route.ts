@@ -1,26 +1,27 @@
-import { Webhook } from 'svix'
-import { headers } from 'next/headers'
-import * as schema from '@/db/schema'
-import { eq } from 'drizzle-orm'
-import { db } from '@/db'
+import { Webhook } from 'svix';
+import { headers } from 'next/headers';
+import * as schema from '@/db/schema';
+import { eq } from 'drizzle-orm';
+import { db } from '@/db';
 
-const WEBHOOK_SECRET = process.env.CLERK_WEBHOOK_SECRET
+const WEBHOOK_SECRET = process.env.CLERK_WEBHOOK_SECRET;
 
 export async function POST(req: Request) {
-  const headerPayload = await headers()
-  const svixId = headerPayload.get('svix-id')
-  const svixTimestamp = headerPayload.get('svix-timestamp')
-  const svixSignature = headerPayload.get('svix-signature')
+  const headerPayload = await headers();
+  const svixId = headerPayload.get('svix-id');
+  const svixTimestamp = headerPayload.get('svix-timestamp');
+  const svixSignature = headerPayload.get('svix-signature');
 
   if (!svixId || !svixTimestamp || !svixSignature) {
-    return new Response('Error occured — no svix headers', { status: 400 })
+    return new Response('Error occured — no svix headers', { status: 400 });
   }
 
-  const payload = await req.text()
+  const payload = await req.text();
 
-  const wh = new Webhook(WEBHOOK_SECRET!)
+  const wh = new Webhook(WEBHOOK_SECRET!);
 
-  let evt: any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let evt: any;
 
   try {
     evt = wh.verify(payload, {
@@ -29,16 +30,15 @@ export async function POST(req: Request) {
       'svix-signature': svixSignature,
     });
   } catch (err) {
-    console.error('Error verifying webhook:', err)
-    return new Response('Error verifying webhook', { status: 400 })
+    return new Response('Error verifying webhook', { status: 400 });
   }
 
-  const eventType = evt.type
+  const eventType = evt.type;
 
   switch (eventType) {
     case 'user.created':
     case 'user.updated': {
-      const { id } = evt.data
+      const { id } = evt.data;
 
       await db
         .insert(schema.users)
@@ -47,19 +47,19 @@ export async function POST(req: Request) {
         })
         .onConflictDoNothing();
 
-      break
+      break;
     }
 
     case 'user.deleted': {
-      const { id } = evt.data
-      await db.delete(schema.users).where(eq(schema.users.clerkId, id))
+      const { id } = evt.data;
+      await db.delete(schema.users).where(eq(schema.users.clerkId, id));
       // можно также каскадно удалить активности, записи трекинга и т.д.
-      break
+      break;
     }
 
     default:
-      console.log(`Unhandled event type: ${eventType}`)
+      console.log(`Unhandled event type: ${eventType}`);
   }
 
-  return new Response('Webhook processed', { status: 200 })
+  return new Response('Webhook processed', { status: 200 });
 }

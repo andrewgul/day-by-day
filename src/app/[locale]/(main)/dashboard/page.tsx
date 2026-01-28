@@ -10,7 +10,5 @@ export default async function DashboardPage() {
     redirect({ href: ROUTES.welcome.getPath(), locale: 'en' });
   }
 
-  return (
-    <Container title={'Привет, ' + user?.fullName} />
-  )
+  return <Container title={'Привет, ' + user?.fullName} />;
 }

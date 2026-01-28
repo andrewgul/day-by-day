@@ -2,10 +2,7 @@ import { db } from '../index';
 import { test } from '../schema';
 
 export async function createTestRecord({ someNumber }: { someNumber: number }) {
-  const [newRecord] = await db
-    .insert(test)
-    .values({ someNumber })
-    .returning();
+  const [newRecord] = await db.insert(test).values({ someNumber }).returning();
 
   return newRecord;
 }

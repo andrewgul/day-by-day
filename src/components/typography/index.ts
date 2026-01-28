@@ -6,8 +6,4 @@ const Typography = {
   H1,
 };
 
-export {
-  Paragraph,
-  H1,
-  Typography,
-};
+export { Paragraph, H1, Typography };
