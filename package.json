@@ -11,8 +11,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "type-check": "tsc --noEmit --pretty",
-    "check": "yarn type-check && yarn lint:fix && yarn format:check",
-    "prepare": "husky"
+    "check": "yarn type-check && yarn lint:fix && yarn format:check"
   },
   "dependencies": {
     "@clerk/nextjs": "^6.36.9",
@@ -37,6 +36,7 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@total-typescript/ts-reset": "^0.6.1",
+    "@types/eslint-plugin-tailwindcss": "^3",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
@@ -49,8 +49,12 @@
     "eslint-config-next": "16.1.4",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.5",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "eslint-plugin-tailwindcss": "^3.18.2",
+    "eslint-plugin-unicorn": "^62.0.0",
+    "eslint-plugin-unused-imports": "^4.3.0",
     "husky": "^9.1.7",
-    "lint-staged": "^16.2.7",
     "prettier": "^3.8.1",
     "prettier-plugin-tailwindcss": "^0.7.2",
     "tailwindcss": "^4",

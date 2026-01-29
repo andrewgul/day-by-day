@@ -29,6 +29,9 @@ const eslintConfig = defineConfig([
       'no-unused-vars': 'off',
       '@typescript-eslint/no-explicit-any': 'warn',
       'react-hooks/exhaustive-deps': 'warn',
+      "tailwindcss/classnames-order": "off",
+      "tailwindcss/no-contradicting-classname": "warn",
+      "tailwindcss/enforces-shorthand": "warn",
     },
   },
 ]);
