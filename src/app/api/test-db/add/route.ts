@@ -13,8 +13,11 @@ export async function POST(request: NextRequest) {
 
     const newRecord = createTestRecord({ someNumber });
 
-    return NextResponse.json({ success: true, data: newRecord }, { status: 201 })
-  } catch (error) {
+    return NextResponse.json(
+      { success: true, data: newRecord },
+      { status: 201 }
+    );
+  } catch {
     return NextResponse.json(
       { success: false, error: 'Internal server error' },
       { status: 500 }

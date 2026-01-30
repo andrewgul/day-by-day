@@ -1,7 +1,5 @@
-import { Locale } from "next-intl";
-import { routing } from "../routing";
-
-// test
+import { Locale } from 'next-intl';
+import { routing } from '../routing';
 
 export const isValidLocale = (value?: string | null): value is Locale => {
   if (!value) {
@@ -9,4 +7,4 @@ export const isValidLocale = (value?: string | null): value is Locale => {
   }
 
   return routing.locales.includes(value);
-}
+};

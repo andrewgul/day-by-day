@@ -8,8 +8,11 @@ export default async function LocaleRootPage() {
   const user = await currentUser();
 
   if (user) {
-    redirect({ href: ROUTES.dashboard.getPath(), locale: routing.defaultLocale });
+    redirect({
+      href: ROUTES.dashboard.getPath(),
+      locale: routing.defaultLocale,
+    });
   } else {
-    redirect({ href: ROUTES.welcome.getPath(), locale: routing.defaultLocale })
+    redirect({ href: ROUTES.welcome.getPath(), locale: routing.defaultLocale });
   }
 }

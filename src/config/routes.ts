@@ -17,4 +17,10 @@ export const ROUTES = {
   activities: {
     getPath: () => '/activities',
   },
-} satisfies Record<string, { getPath: (...args: any[]) => string }>
+} satisfies Record<
+  string,
+  {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    getPath: (...args: any[]) => string;
+  }
+>;

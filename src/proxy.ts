@@ -1,5 +1,5 @@
 import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
-import createMiddleware from 'next-intl/middleware'
+import createMiddleware from 'next-intl/middleware';
 import { routing } from './i18n/routing';
 import { NextResponse } from 'next/server';
 import { extractLocaleFromPathname } from './i18n/utils';
@@ -19,16 +19,14 @@ export default clerkMiddleware(async (auth, req) => {
   if (!isPublicRoute(req) && !userId) {
     const locale = extractLocaleFromPathname(req.nextUrl.pathname);
 
-    return NextResponse.redirect(new URL(`/${locale}${ROUTES.welcome.getPath()}`, req.url));
+    return NextResponse.redirect(
+      new URL(`/${locale}${ROUTES.welcome.getPath()}`, req.url)
+    );
   }
 
   return intlMiddleware(req);
 });
 
 export const config = {
-  matcher: [
-    '/((?!_next|api|.*\\..*).*)',
-    '/',
-    '/(en|ru)/:path*',
-  ],
+  matcher: ['/((?!_next|api|.*\\..*).*)', '/', '/(en|ru)/:path*'],
 };

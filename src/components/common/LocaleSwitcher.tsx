@@ -6,18 +6,18 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuTrigger
+  DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
 import { Globe } from 'lucide-react';
 import { routing } from '@/i18n/routing';
 
-const getLabel = (loc: string) => loc === 'en' ? 'English' : 'Русский';
+const getLabel = (loc: string) => (loc === 'en' ? 'English' : 'Русский');
 
 export default function LocaleSwitcher() {
   const currentLocale = useLocale();
   const pathname = usePathname();
-  const t = useTranslations('LocaleSwitcher')
+  const t = useTranslations('LocaleSwitcher');
 
   return (
     <DropdownMenu>
@@ -33,7 +33,7 @@ export default function LocaleSwitcher() {
             <Link
               href={pathname}
               locale={locale}
-              className="flex items-center justify-between gap-6 cursor-pointer w-full"
+              className="flex w-full cursor-pointer items-center justify-between gap-6"
             >
               {getLabel(locale)}
               {locale === currentLocale && (

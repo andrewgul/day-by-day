@@ -1,4 +1,4 @@
-import clsx from "clsx";
+import clsx from 'clsx';
 
 export type ContainerProps = React.PropsWithChildren<{
   className?: string;
@@ -15,22 +15,22 @@ export const Container = ({
   title,
   centered,
   paddingX = 4,
-  paddingY = 4,
+  paddingY = 3,
   fullscreen,
 }: ContainerProps) => {
   return (
     <div
       className={clsx(
-        "w-full",
+        'w-full',
         paddingX && `px-${paddingX}`,
-        paddingY && `py-3`,
-        centered && "flex items-center justify-center",
-        fullscreen && "w-screen h-screen",
-        className,
+        paddingY && `py-${paddingY}`,
+        centered && 'flex items-center justify-center',
+        fullscreen && 'h-screen w-screen',
+        className
       )}
     >
       {title && (
-        <h1 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0 w-full">
+        <h1 className="w-full scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">
           {title}
         </h1>
       )}

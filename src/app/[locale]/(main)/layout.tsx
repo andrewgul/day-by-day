@@ -1,5 +1,5 @@
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
-import { MainSidebar } from "./_components/MainSidebar"
+import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
+import { MainSidebar } from './_components/MainSidebar';
 
 export default function MainLayout({ children }: React.PropsWithChildren) {
   return (
@@ -10,5 +10,5 @@ export default function MainLayout({ children }: React.PropsWithChildren) {
         {children}
       </main>
     </SidebarProvider>
-  )
+  );
 }

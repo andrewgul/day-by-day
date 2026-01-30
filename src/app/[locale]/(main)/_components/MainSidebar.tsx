@@ -5,14 +5,19 @@ import {
   SidebarGroupContent,
   SidebarMenuButton,
   SidebarMenuItem,
-} from "@/components/ui/sidebar"
-import { ROUTES } from "@/config/routes";
-import { Link } from "@/i18n/navigation";
-import { LinkEntity } from "@/types/LinkEntity";
+} from '@/components/ui/sidebar';
+import { ROUTES } from '@/config/routes';
+import { Link } from '@/i18n/navigation';
+import { LinkEntity } from '@/types/LinkEntity';
 import { CalendarHeart, User, Settings, Bike, CircleGauge } from 'lucide-react';
-import { getTranslations } from "next-intl/server";
+import { getTranslations } from 'next-intl/server';
 
-const getLinks = async (): Promise<Record<'primary' | 'secondary', LinkEntity<{ icon: React.ComponentType<{ className?: string }> }>[]>> => {
+const getLinks = async (): Promise<
+  Record<
+    'primary' | 'secondary',
+    LinkEntity<{ icon: React.ComponentType<{ className?: string }> }>[]
+  >
+> => {
   const t = await getTranslations('SidebarComponent');
 
   return {
@@ -31,14 +36,13 @@ const getLinks = async (): Promise<Record<'primary' | 'secondary', LinkEntity<{ 
         title: t('activities'),
         href: ROUTES.activities.getPath(),
         icon: Bike,
-      }
+      },
     ],
     secondary: [
       {
         title: t('profile'),
         href: ROUTES.profile.getPath(),
         icon: User,
-
       },
       {
         title: t('settings'),
@@ -46,7 +50,7 @@ const getLinks = async (): Promise<Record<'primary' | 'secondary', LinkEntity<{ 
         icon: Settings,
       },
     ],
-  }
+  };
 };
 
 export async function MainSidebar() {
@@ -61,7 +65,7 @@ export async function MainSidebar() {
               <SidebarMenuItem key={item.title}>
                 <SidebarMenuButton asChild>
                   <Link href={item.href}>
-                    <item.icon className='w-2.5 h-2.5' />
+                    <item.icon className="h-2.5 w-2.5" />
                     <span>{item.title}</span>
                   </Link>
                 </SidebarMenuButton>
@@ -75,7 +79,7 @@ export async function MainSidebar() {
               <SidebarMenuItem key={item.title}>
                 <SidebarMenuButton asChild>
                   <Link href={item.href}>
-                    <item.icon className='w-2.5 h-2.5' />
+                    <item.icon className="h-2.5 w-2.5" />
                     <span>{item.title}</span>
                   </Link>
                 </SidebarMenuButton>
@@ -85,5 +89,5 @@ export async function MainSidebar() {
         </SidebarGroup>
       </SidebarContent>
     </Sidebar>
-  )
+  );
 }
