@@ -29,7 +29,7 @@ export async function POST(req: Request) {
       'svix-timestamp': svixTimestamp,
       'svix-signature': svixSignature,
     });
-  } catch (err) {
+  } catch {
     return new Response('Error verifying webhook', { status: 400 });
   }
 
@@ -58,7 +58,7 @@ export async function POST(req: Request) {
     }
 
     default:
-      console.log(`Unhandled event type: ${eventType}`);
+      break;
   }
 
   return new Response('Webhook processed', { status: 200 });

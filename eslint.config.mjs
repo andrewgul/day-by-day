@@ -11,7 +11,7 @@ const eslintConfig = defineConfig([
     'build/**',
     'next-env.d.ts',
     'src/components/ui/**',
-    'drizzle/**'
+    'drizzle/**',
   ]),
   ...nextVitals,
   ...nextTs,
