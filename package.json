@@ -36,7 +36,6 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@total-typescript/ts-reset": "^0.6.1",
-    "@types/eslint-plugin-tailwindcss": "^3",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

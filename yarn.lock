@@ -2410,33 +2410,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/eslint-plugin-tailwindcss@npm:^3":
-  version: 3.17.0
-  resolution: "@types/eslint-plugin-tailwindcss@npm:3.17.0"
-  dependencies:
-    "@types/eslint": "npm:*"
-  checksum: 10c0/256c720bab11019fe99fc1a60e8d57221e1d4312f43ae05f9526de61be51050d584f3735ba10765e0cfc70ed318acf25743130f5b4f426412550dd68bc095f37
-  languageName: node
-  linkType: hard
-
-"@types/eslint@npm:*":
-  version: 9.6.1
-  resolution: "@types/eslint@npm:9.6.1"
-  dependencies:
-    "@types/estree": "npm:*"
-    "@types/json-schema": "npm:*"
-  checksum: 10c0/69ba24fee600d1e4c5abe0df086c1a4d798abf13792d8cfab912d76817fe1a894359a1518557d21237fbaf6eda93c5ab9309143dee4c59ef54336d1b3570420e
-  languageName: node
-  linkType: hard
-
-"@types/estree@npm:*, @types/estree@npm:^1.0.6":
+"@types/estree@npm:^1.0.6":
   version: 1.0.8
   resolution: "@types/estree@npm:1.0.8"
   checksum: 10c0/39d34d1afaa338ab9763f37ad6066e3f349444f9052b9676a7cc0252ef9485a41c6d81c9c4e0d26e9077993354edf25efc853f3224dd4b447175ef62bdcc86a5
   languageName: node
   linkType: hard
 
-"@types/json-schema@npm:*, @types/json-schema@npm:^7.0.15":
+"@types/json-schema@npm:^7.0.15":
   version: 7.0.15
   resolution: "@types/json-schema@npm:7.0.15"
   checksum: 10c0/a996a745e6c5d60292f36731dd41341339d4eeed8180bb09226e5c8d23759067692b1d88e5d91d72ee83dfc00d3aca8e7bd43ea120516c17922cbcb7c3e252db
@@ -3465,7 +3446,6 @@ __metadata:
     "@radix-ui/react-tooltip": "npm:^1.2.8"
     "@tailwindcss/postcss": "npm:^4"
     "@total-typescript/ts-reset": "npm:^0.6.1"
-    "@types/eslint-plugin-tailwindcss": "npm:^3"
     "@types/node": "npm:^20"
     "@types/react": "npm:^19"
     "@types/react-dom": "npm:^19"
