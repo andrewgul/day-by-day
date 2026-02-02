@@ -9,6 +9,18 @@
     "settings": "Настройки",
     "activities": "Активности"
   },
+  "CreateActivityFormComponent": {
+    "addActivity": "Добавить активность",
+    "newActivity": "Новая активность",
+    "title": "Название",
+    "description": "Описание",
+    "cancel": "Отмена",
+    "add": "Добавить"
+  },
+  "EmojiInputComponent": {
+    "select": "Выбрать...",
+    "change": "Изменить..."
+  },
   "WelcomePage": {
     "description": "Мне просто захотелось создать удобный трекер активностей",
     "signIn": "Войти",
@@ -16,7 +28,8 @@
     "continue": "Продолжить"
   },
   "Activities": {
-    "title": "Активности"
+    "title": "Активности",
+    "addActivity": "Добавить активность"
   },
   "Profile": {
     "title": "Профиль"

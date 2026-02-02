@@ -7,6 +7,7 @@ export type ContainerProps = React.PropsWithChildren<{
   paddingX?: number | null;
   paddingY?: number | null;
   fullscreen?: boolean;
+  after?: React.ReactNode;
 }>;
 
 export const Container = ({
@@ -15,8 +16,9 @@ export const Container = ({
   title,
   centered,
   paddingX = 4,
-  paddingY = 3,
+  paddingY = 6,
   fullscreen,
+  after,
 }: ContainerProps) => {
   return (
     <div
@@ -29,11 +31,14 @@ export const Container = ({
         className
       )}
     >
-      {title && (
-        <h1 className="w-full scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">
-          {title}
-        </h1>
-      )}
+      <div className="flex items-center justify-between border-b pb-2">
+        {title && (
+          <h1 className="w-full scroll-m-20 text-3xl font-semibold tracking-tight first:mt-0">
+            {title}
+          </h1>
+        )}
+        {after}
+      </div>
       {children}
     </div>
   );
