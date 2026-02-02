@@ -22,6 +22,13 @@
       "when": 1769220033495,
       "tag": "0002_silky_darwin",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1769738359532,
+      "tag": "0003_stormy_sunfire",
+      "breakpoints": true
     }
   ]
 }

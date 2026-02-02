@@ -9,6 +9,18 @@
     "settings": "Settings",
     "activities": "Activities"
   },
+  "CreateActivityFormComponent": {
+    "addActivity": "Add activity",
+    "newActivity": "New activity",
+    "title": "Title",
+    "description": "Description",
+    "cancel": "Cancel",
+    "add": "Add"
+  },
+  "EmojiInputComponent": {
+    "select": "Select...",
+    "change": "Change..."
+  },
   "WelcomePage": {
     "description": "I just wanted a nice, straightforward way to track my daily activities",
     "signIn": "Sign In",
@@ -16,7 +28,8 @@
     "continue": "Continue"
   },
   "Activities": {
-    "title": "Activities"
+    "title": "Activities",
+    "addActivity": "Add activity"
   },
   "Profile": {
     "title": "Profile"
